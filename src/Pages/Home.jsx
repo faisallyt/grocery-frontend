@@ -61,9 +61,9 @@ const Home = () => {
   });
 
   return (
-    <div className="px-10 py-6 mx-auto flex flex-col justify-center items-center">
+    <div className="px-4 py-6 mx-auto flex flex-col justify-center items-center max-w-screen-lg">
       <div className="flex w-full justify-center mb-6">
-        <div className="w-full flex items-center border max-w-3xl border-gray-300 rounded-lg p-3 shadow-sm">
+        <div className="w-full flex items-center border max-w-md border-gray-300 rounded-lg p-3 shadow-sm">
           <input
             type="text"
             placeholder="Search Items"
@@ -75,12 +75,12 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex items-center flex-col mb-6">
+      <div className="flex items-center flex-col mb-6 w-full">
         <h2 className="text-sm font-bold mb-2">Search Grocery List</h2>
         <input
           type="file"
           accept="image/*"
-          className="border border-gray-300 rounded-lg p-2 bg-white text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none focus:ring focus:ring-green-300"
+          className="border border-gray-300 rounded-lg p-2 bg-white text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none focus:ring focus:ring-green-300 w-full max-w-md"
           onChange={handleImageChange}
         />
         <p className="text-xs text-gray-500 mt-1">
@@ -88,7 +88,7 @@ const Home = () => {
         </p>
         <button
           onClick={handleImageSubmit}
-          className="mt-2 bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-green-300">
+          className="mt-2 bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:ring-green-300 w-full max-w-md">
           Submit Image
         </button>
       </div>

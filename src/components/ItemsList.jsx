@@ -42,7 +42,7 @@ const ItemsList = ({ groceryItems }) => {
             className="p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-[17rem]">
             <div className="w-full flex items-center justify-center">
               <img
-                src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/54f36c0f42bf6e0179ea408441"
+                src={item.image}
                 alt={item.title}
                 className="w-[8.75rem] h-[8.75rem] object-cover rounded-md mb-4"
               />
