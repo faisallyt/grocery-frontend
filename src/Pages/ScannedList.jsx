@@ -51,6 +51,10 @@ const ScannedList = () => {
     });
   };
 
+  const SearchButtonHandler = () => {
+    localStorage.setItem("searchedItems", JSON.stringify(selectedItems));
+  };
+
   return (
     <div className="px-10 py-6 mx-auto flex flex-col justify-center items-center">
       {list && (
@@ -73,6 +77,11 @@ const ScannedList = () => {
               />
             </li>
           ))}
+          <button
+            className="p-4 rounded-lg border"
+            onClick={SearchButtonHandler}>
+            Search
+          </button>
         </ul>
       )}
     </div>
