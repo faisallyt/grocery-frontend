@@ -59,13 +59,13 @@ const ScannedList = () => {
   };
 
   return (
-    <div className="px-10 py-6 mx-auto flex flex-col justify-center items-center">
-      {list && (
-        <ul className="px-10 flex flex-col gap-2">
+    <div className="px-4 md:px-10 py-6 mx-auto flex flex-col justify-center items-center">
+      {list.length > 0 ? (
+        <ul className="flex flex-col gap-4 w-full max-w-3xl">
           {list.map((item, index) => (
             <li
               key={index}
-              className="p-4 border rounded-lg w-[30rem] flex items-center">
+              className="p-4 border rounded-lg flex items-center bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
               <input
                 type="checkbox"
                 checked={selectedItems.includes(item.itemname)}
@@ -76,16 +76,21 @@ const ScannedList = () => {
                 type="text"
                 value={item.itemname}
                 onChange={(e) => handleItemNameChange(index, e.target.value)}
-                className="ml-2 p-1 border-b border-gray-300 focus:outline-none focus:border-b focus:border-blue-500"
+                className="flex-1 p-2 border-b border-gray-300 focus:outline-none focus:border-b focus:border-blue-500"
+                placeholder="Item name"
               />
             </li>
           ))}
           <button
-            className="p-4 rounded-lg border"
+            className="mt-4 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors w-full"
             onClick={SearchButtonHandler}>
             Search
           </button>
         </ul>
+      ) : (
+        <h1 className="text-center text-3xl font-bold text-gray-700">
+          No items found.
+        </h1>
       )}
     </div>
   );
