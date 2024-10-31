@@ -11,6 +11,18 @@ const ItemsList = ({ groceryItems }) => {
     setSelectedQuantities(initialQuantities);
   }, [groceryItems]);
 
+  const addToCartHandler = (item) => {
+    const cartItems = localStorage.getItem("cartItems");
+    if (cartItems) {
+      const cartItemsJSON = JSON.parse(cartItems);
+      cartItemsJSON.push({ ...item, quantity: selectedQuantities[item.id] });
+      localStorage.setItem("cartItems", JSON.stringify(cartItemsJSON));
+    } else {
+      const cartItems = [{ ...item, quantity: selectedQuantities[item.id] }];
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  };
+
   if (groceryItems.length < 1) {
     return (
       <div>
@@ -62,7 +74,9 @@ const ItemsList = ({ groceryItems }) => {
                   </option>
                 ))}
               </select>
-              <button className="rounded-lg p-2 border px-6 text-green-600 hover:bg-green-100 transition-colors">
+              <button
+                className="rounded-lg p-2 border px-6 text-green-600 hover:bg-green-100 transition-colors"
+                onClick={() => addToCartHandler(item)}>
                 ADD
               </button>
             </div>
