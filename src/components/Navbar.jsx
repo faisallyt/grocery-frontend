@@ -3,7 +3,7 @@ import { FaCartShopping } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
-    <div className="flex px-4 py-4 justify-between items-center shadow-xl">
+    <div className="flex px-4 py-4 justify-between items-center shadow-xl mb-6">
       <div>
         <h1 className=" text-xl">Grocery Store </h1>
       </div>
