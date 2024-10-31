@@ -3,7 +3,7 @@ import ItemsList from "../components/ItemsList";
 import { useState } from "react";
 import groceryItems from "../utils/DummyItems.js";
 import axios from "axios";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");

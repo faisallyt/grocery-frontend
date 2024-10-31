@@ -1,0 +1,28 @@
+/* Custom checkbox styling */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fc8019; /* Box color */
+  border: 2px solid #fc8019;
+  width: 1.25rem; /* Adjust size as needed */
+  height: 1.25rem;
+  border-radius: 0.25rem; /* Optional for rounded corners */
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background-color: #fc8019;
+}
+
+.custom-checkbox:checked::after {
+  content: "✔"; /* Checkmark symbol */
+  color: white; /* Checkmark color */
+  font-size: 0.9rem;
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translate(-50%, -5%); /* Center the checkmark */
+}
