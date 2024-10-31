@@ -2,10 +2,13 @@ import { CiSearch } from "react-icons/ci";
 import ItemsList from "../components/ItemsList";
 import { useState } from "react";
 import groceryItems from "../utils/DummyItems.js";
+import axios from "axios";
+import { json, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const navigate = useNavigate();
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -18,12 +21,31 @@ const Home = () => {
     }
   };
 
-  const handleImageSubmit = () => {
+  const handleImageSubmit = async () => {
     if (selectedImage) {
-      // Handle the image submission logic here
-      console.log("Image submitted:", selectedImage);
-      // You can add your image processing logic here
-      // For example, sending the image to your API for processing
+      const formData = new FormData();
+      formData.append("file", selectedImage);
+
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/process-image",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log("Extracted items", response.data.items);
+
+        localStorage.setItem(
+          "extractedItems",
+          JSON.stringify(response.data.items)
+        );
+        navigate("/scanned-list");
+      } catch (error) {
+        console.error(error);
+      }
     } else {
       alert("Please select an image to submit.");
     }
