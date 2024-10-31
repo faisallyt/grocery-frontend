@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Navbar from "./components/Navbar";
 import Cart from "./Pages/Cart";
 import ScannedList from "./Pages/ScannedList";
+import SearchResults from "./Pages/SearchResults";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/scanned-list" element={<ScannedList />} />
+        <Route path="/search-result" element={<SearchResults />} />
       </Routes>
     </>
   );

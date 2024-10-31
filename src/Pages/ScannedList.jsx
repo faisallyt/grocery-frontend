@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ScannedList = () => {
   const [list, setList] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const extractedItems = localStorage.getItem("extractedItems");
@@ -53,6 +55,7 @@ const ScannedList = () => {
 
   const SearchButtonHandler = () => {
     localStorage.setItem("searchedItems", JSON.stringify(selectedItems));
+    navigate("/search-result");
   };
 
   return (
