@@ -30,11 +30,11 @@ const Cart = () => {
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-6 px-10 py-6">
+    <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 px-4 sm:px-6 md:px-10 py-6">
       {itemsInCart.map((item) => (
         <div
           key={item.id} // Use a unique ID for better performance
-          className="p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-[17rem]">
+          className="p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full sm:w-64 md:w-72 lg:w-80">
           <img
             src={item.image} // Assuming each item has an image URL
             alt={item.title}
@@ -47,7 +47,7 @@ const Cart = () => {
             Brand:{" "}
             <span className="text-gray-700 font-medium">{item.brand}</span>
           </h2>
-          <p className="text-gray-800 font-medium">
+          <p className="text-gray-800 font-medium mb-2">
             Quantity: {item.quantity.amount} - Price: ₹
             {item.quantity.price.toFixed(2)}
           </p>
