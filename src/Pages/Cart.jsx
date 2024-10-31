@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const [itemsInCart, setItemsInCart] = useState([]);
@@ -17,6 +18,7 @@ const Cart = () => {
 
     // Update localStorage
     localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+    toast.error(`Item removed from cart`);
   };
 
   if (itemsInCart.length < 1) {

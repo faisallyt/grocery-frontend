@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const ItemsList = ({ groceryItems }) => {
   const [selectedQuantities, setSelectedQuantities] = useState({});
@@ -21,6 +22,7 @@ const ItemsList = ({ groceryItems }) => {
       const cartItems = [{ ...item, quantity: selectedQuantities[item.id] }];
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
+    toast.success(`Added ${item.title} to cart`);
   };
 
   if (groceryItems.length < 1) {
